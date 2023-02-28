@@ -24,6 +24,8 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn test
+           ls -l
+
     - name: jacoco-badge-generator
       uses: cicirello/jacoco-badge-generator@v2
     - name: Log coverage percentage
@@ -33,6 +35,7 @@ jobs:
     - name: Commit the badge (if it changed)
       run: |
         if [[ `git status --porcelain` ]]; then
+          ls -l
           git config user.name 'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
           git add -A
@@ -45,7 +48,7 @@ jobs:
       id: jacoco_reporter
       uses: PavanMudigonda/jacoco-reporter@v4.8
       with:
-        coverage_results_path: jacoco-report/test.xml
+        coverage_results_path: /target/site/jacoco/jacoco.xml
         coverage_report_name: Coverage
         coverage_report_title: JaCoCo
         github_token: ${{ secrets.GITHUB_TOKEN }}
