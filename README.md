@@ -7,6 +7,7 @@ To run the tests locally, you can use the following command:
 
 ```mvn test```
   
+This project also includes a GitHub-Action to run the tests and generate a coverage report.
 
 ## Auto generated Coverage Badge
 ![Coverage](.github/badges/jacoco.svg)
