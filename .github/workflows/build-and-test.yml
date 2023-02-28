@@ -70,6 +70,8 @@ jobs:
         name: code-coverage-report-markdown
         path: /coverage-results.md
         retention-days: 1
+      permissions:
+        checks: write
 
     - name: Cache SonarCloud packages
       uses: actions/cache@v3
